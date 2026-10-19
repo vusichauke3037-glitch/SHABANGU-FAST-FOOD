@@ -1,0 +1,16 @@
+{
+  "name": "Shabangu's Fast Food",
+  "short_name": "Shabangu",
+  "start_url": "./index.html",
+  "display": "standalone",
+  "background_color": "#ff6a00",
+  "theme_color": "#ff6a00",
+  "icons": [
+    {
+      "src": "./icon.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "any maskable"
+    }
+  ]
+}
