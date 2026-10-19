@@ -2,55 +2,62 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Shabangu's Fast Food</title>
 <link rel="manifest" href="manifest.json">
 <meta name="theme-color" content="#ff6a00">
 <link rel="icon" href="icon.png">
 <style>
-*{margin:0;padding:0;box-sizing:border-box;font-family:system-ui,-apple-system,Roboto}
-body{background:#FFF6EB;padding-bottom:220px}
-header{background:linear-gradient(135deg,#ff6a00,#ff9a00);color:white;padding:18px 16px;position:sticky;top:0;z-index:20;text-align:center}
-header h1{font-size:26px;font-weight:900;letter-spacing:.5px}
-header p{font-size:13px;opacity:.95;margin-top:2px}
-.menu{display:grid;grid-template-columns:1fr 1fr;gap:12px;padding:12px}
-.card{background:white;border-radius:20px;box-shadow:0 6px 18px rgba(0,0,0,.08);padding:14px;display:flex;flex-direction:column;gap:8px;border:2px solid #ffe0b2}
+*{margin:0;padding:0;box-sizing:border-box;font-family:system-ui,Roboto}
+body{background:#FFF6EB;padding-bottom:270px}
+header{background:linear-gradient(135deg,#ff6a00,#ffb700);color:white;padding:14px;position:sticky;top:0;z-index:20;text-align:center}
+header h1{font-size:21px;font-weight:900}
+.menu{display:grid;grid-template-columns:1fr 1fr;gap:8px;padding:8px}
+.card{background:white;border-radius:14px;box-shadow:0 3px 10px rgba(0,0,0,.06);padding:9px;display:flex;flex-direction:column;gap:3px;border:2px solid #ffe0b2}
 .card.hot{border-color:#ff6a00;background:#fff7ed}
-.badge{background:#111;color:white;border-radius:999px;padding:3px 10px;font-size:11px;font-weight:800;align-self:flex-start}
-.price{font-size:24px;font-weight:900;color:#ff6a00}
-.name{font-weight:800;font-size:14px;line-height:1.2}
-.desc{font-size:11px;color:#888}
-.qtybox{display:flex;gap:6px;align-items:center;margin-top:6px}
-.btn{flex:1;border:none;border-radius:12px;padding:11px 0;font-weight:900;cursor:pointer;font-size:14px}
-.btn-add{background:#111;color:white}
-.btn-less{background:#fff1e0;color:#ff6a00;border:1px solid #ffd8a8}
-.qty{font-weight:900;min-width:28px;text-align:center}
-.cart{position:fixed;bottom:0;left:0;right:0;background:white;border-radius:26px 26px 0 0;box-shadow:0 -12px 30px rgba(0,0,0,.18);padding:16px;z-index:30}
-.cart-item{display:flex;justify-content:space-between;background:#fff7ed;padding:9px 12px;border-radius:12px;margin:5px 0;font-size:14px;font-weight:600}
-.total-row{display:flex;justify-content:space-between;font-size:22px;font-weight:900;margin:12px 0}
-.grid2{display:grid;grid-template-columns:1fr 1fr;gap:10px}
-.btn-pay{padding:15px;border-radius:14px;border:none;font-weight:900;font-size:16px;cursor:pointer}
-.btn-wa{background:#25D366;color:white}
-.btn-cash{background:#111;color:white}
-.tabs{display:flex;gap:8px;padding:10px 12px;overflow:auto}
-.tab{white-space:nowrap;padding:9px 16px;border-radius:999px;border:1px solid #ffd8a8;background:white;font-weight:700;cursor:pointer}
+.card.kota{border-color:#ff3d00;background:#fff0e6}.card.real{background:linear-gradient(#fff0e6,#ffe0b2);border-color:#d84315;border-width:2.5px}
+.card.sand{background:#e3f2fd;border-color:#90caf9}.card.snack{border-color:#ffd54f;background:#fffde7}
+.card.drink{background:#e8f5e9;border-color:#66bb6a}.card.sweet{background:#fce4ec;border-color:#f48fb1}
+.badge{color:white;border-radius:999px;padding:2px 6px;font-size:8px;font-weight:800;align-self:flex-start}
+.badge.kota{background:#e65100}.badge.realkota{background:#bf360c}.badge.chips{background:#111}.badge.snack{background:#ffb300;color:#111}.badge.sand{background:#1565c0}.badge.drink{background:#2e7d32}.badge.sweet{background:#c2185b}
+.price{font-size:18px;font-weight:900;color:#ff6a00}
+.name{font-weight:800;font-size:10.5px;line-height:1.2}
+.desc{font-size:8px;color:#666;min-height:16px}
+.qtybox{display:flex;gap:3px;align-items:center}
+.btn{flex:1;border:none;border-radius:8px;padding:7px 0;font-weight:900;cursor:pointer;font-size:11px}
+.btn-add{background:#111;color:white}.btn-less{background:#fff1e0;color:#ff6a00;border:1px solid #ffd8a8}
+.qty{font-weight:900;min-width:20px;text-align:center;font-size:12px}
+.cart{position:fixed;bottom:0;left:0;right:0;background:white;border-radius:20px 20px 0 0;box-shadow:0 -10px 25px rgba(0,0,0,.2);padding:10px;z-index:30}
+.cart-item{display:flex;justify-content:space-between;background:#fff7ed;padding:5px 8px;border-radius:7px;margin:2px 0;font-size:10px;font-weight:600}
+.total-row{display:flex;justify-content:space-between;font-size:18px;font-weight:900;margin:6px 0}
+.grid2{display:grid;grid-template-columns:1fr 1fr;gap:6px}
+.btn-pay{padding:11px;border-radius:10px;border:none;font-weight:900;font-size:11px;cursor:pointer}
+.btn-wa{background:#25D366;color:white}.btn-cash{background:#111;color:white}
+.tabs{display:flex;gap:4px;padding:7px 8px;overflow:auto;position:sticky;top:56px;background:#FFF6EB;z-index:10}
+.tab{white-space:nowrap;padding:6px 10px;border-radius:999px;border:1px solid #ffd8a8;background:white;font-weight:700;cursor:pointer;font-size:9.5px}
 .tab.active{background:#ff6a00;color:white;border-color:#ff6a00}
-.owner{padding:12px;display:none}
-.owner.active{display:block}
-.box{background:white;border-radius:18px;padding:14px;margin-bottom:12px;box-shadow:0 4px 12px rgba(0,0,0,.06)}
-.kpi{display:grid;grid-template-columns:1fr 1fr 1fr;gap:8px;margin-top:10px}
-.kpi div{background:#fff7ed;border-radius:14px;padding:12px;text-align:center}
-.kpi b{display:block;font-size:20px;color:#ff6a00}
+.cat-title{grid-column:1/-1;font-weight:900;font-size:11px;margin-top:6px;padding:2px;color:#111}
+.owner{padding:10px;display:none}.owner.active{display:block}
+.box{background:white;border-radius:12px;padding:10px;margin-bottom:8px}
+.kpi{display:grid;grid-template-columns:1fr 1fr 1fr;gap:4px;margin-top:6px}
+.kpi div{background:#fff7ed;border-radius:8px;padding:6px;text-align:center}
+.kpi b{display:block;font-size:14px;color:#ff6a00}
 </style>
 </head>
 <body>
 <header>
-<h1>🍟 SHABANGU'S FAST FOOD</h1>
-<p>From Orange List • 8 Items • Cash / PayShap • Offline</p>
+<h1>🔥 SHABANGU'S FAST FOOD</h1>
+<p>49 Items - Full Shop - Kotas Drinks Sweets</p>
 </header>
 
 <div class="tabs">
-<button class="tab active" onclick="showTab('menu',this)">🛒 SELL</button>
+<button class="tab active" onclick="filterCat('ALL',this)">ALL 49</button>
+<button class="tab" onclick="filterCat('REAL',this)">👑 REAL</button>
+<button class="tab" onclick="filterCat('KOTA',this)">🔥 KOTA</button>
+<button class="tab" onclick="filterCat('SAND',this)">🥪 SAND</button>
+<button class="tab" onclick="filterCat('DRINK',this)">🥤 DRINKS</button>
+<button class="tab" onclick="filterCat('SWEET',this)">🍬 SWEETS</button>
+<button class="tab" onclick="filterCat('SNACK',this)">🍿 SNACK</button>
 <button class="tab" onclick="showTab('owner',this)">👑 OWNER</button>
 </div>
 
@@ -59,82 +66,102 @@ header p{font-size:13px;opacity:.95;margin-top:2px}
 <div id="tab-owner" class="owner">
 <div class="box">
 <h3>📊 Daily Sales</h3>
-<div class="kpi">
-<div><b id="k-sales">R0</b><span>Sales</span></div>
-<div><b id="k-profit">R0</b><span>Profit</span></div>
-<div><b id="k-orders">0</b><span>Orders</span></div>
-</div>
-<div id="profitList" style="margin-top:14px"></div>
-<button onclick="clearStats()" style="margin-top:12px;width:100%;padding:10px;border-radius:10px;border:1px dashed #ff6a00;background:white;color:#ff6a00;font-weight:800">Reset Daily Stats</button>
+<div class="kpi"><div><b id="k-sales">R0</b><span>Sales</span></div><div><b id="k-profit">R0</b><span>Profit</span></div><div><b id="k-orders">0</b><span>Orders</span></div></div>
+<div id="profitList" style="margin-top:8px"></div>
+<button onclick="localStorage.clear();location.reload()" style="margin-top:8px;width:100%;padding:8px;border-radius:8px;border:1px dashed #ff6a00;background:white;color:#ff6a00;font-weight:700;font-size:11px">Reset</button>
 </div>
 </div>
 
 <div class="cart">
-<div style="display:flex;justify-content:space-between;align-items:center">
-<h3>🧾 <span id="cartCount">0 items</span></h3>
-<span style="font-size:13px;color:#ff6a00;font-weight:800" onclick="clearCart()">Clear</span>
-</div>
-<div id="cartItems" style="margin:8px 0"><small>No items - tap + on chips</small></div>
+<div style="display:flex;justify-content:space-between"><h3 style="font-size:13px">🧾 <span id="cartCount">0</span></h3><span style="font-size:11px;color:#ff6a00;font-weight:800" onclick="clearCart()">Clear</span></div>
+<div id="cartItems" style="margin:5px 0"><small>No items</small></div>
 <div class="total-row"><span>Total</span><span id="cartTotal">R0</span></div>
-<div class="grid2">
-<button class="btn-pay btn-wa" onclick="orderWhatsApp()">WhatsApp Order</button>
-<button class="btn-pay btn-cash" onclick="orderCash()">💵 Cash Paid</button>
-</div>
-<small style="display:block;text-align:center;margin-top:10px;color:#999">SHABANGU'S FAST FOOD | Install: Chrome menu > Add to Home Screen</small>
+<div class="grid2"><button class="btn-pay btn-wa" onclick="orderWhatsApp()">WhatsApp Order</button><button class="btn-pay btn-cash" onclick="orderCash()">💵 Cash</button></div>
 </div>
 
 <script>
 const ITEMS=[
-{id:'small',name:'Fried Chips Small',price:28,cost:12,emoji:'🍟',cat:'CHIPS'},
-{id:'medium',name:'Fried Chips Medium',price:35,cost:16,emoji:'🍟',cat:'CHIPS'},
-{id:'large',name:'Fried Chips Large',price:40,cost:19,emoji:'🍟',cat:'CHIPS'},
-{id:'xlarge',name:'Extra Large',price:50,cost:24,emoji:'🍟🔥',cat:'CHIPS'},
-{id:'hotdog',name:'Hot dog',price:18,cost:8,emoji:'🌭',cat:'HOT DOG'},
-{id:'burger',name:'Burger Large',price:35,cost:18,emoji:'🍔',cat:'BURGER'},
-{id:'burgerchips',name:'Burger + Chips',price:48,cost:26,emoji:'🍔🍟',cat:'COMBO'},
-{id:'fatcake',name:'Fat Cake / Swinya',price:2,cost:0.8,emoji:'🫓',cat:'FAT CAKE'},
+{id:'real_kota',name:'Real Kota',desc:'Chips, Cheese, Polony, Atchar, Russian, Vienna',price:42,cost:24,emoji:'🔥🥪',cat:'REAL'},
+{id:'real_makoya',name:'Real Makoya Kota',desc:'+ Burger Patty',price:60,cost:35,emoji:'👑🥪',cat:'REAL'},
+{id:'bore_wors',name:'Boere Wors',desc:'Boere Wors',price:32,cost:18,emoji:'🌭',cat:'REAL'},
+{id:'bore_chips',name:'Wors + Chips',desc:'Chips combo',price:45,cost:25,emoji:'🍟🌭',cat:'REAL'},
+{id:'combo',name:'Combo Special',desc:'R40+2=R42',price:42,cost:24,emoji:'🍔🍟',cat:'REAL'},
+{id:'starter_kota',name:'Starter Kota',desc:'Chips, Cheese, Polony, Atchar',price:27,cost:15,emoji:'🥪',cat:'KOTA'},
+{id:'sort_kota',name:'Sort of Kota',desc:'+ Vienna',price:30,cost:17,emoji:'🥪',cat:'KOTA'},
+{id:'almost_kota',name:'Almost Kota',desc:'+ Half Russian',price:27,cost:16,emoji:'🥪',cat:'KOTA'},
+{id:'cheese_sand',name:'Cheese Sandwich',desc:'Cheese',price:14,cost:7,emoji:'🧀🥪',cat:'SAND'},
+{id:'polony_sand',name:'Polony Sandwich',desc:'Polony',price:13,cost:6,emoji:'🥪',cat:'SAND'},
+{id:'cheese_polony_sand',name:'Cheese + Polony',desc:'Cheese + Polony',price:16,cost:8,emoji:'🧀🥪',cat:'SAND'},
+{id:'french_toast',name:'French Toast',desc:'French Toast',price:10,cost:4,emoji:'🍞',cat:'SAND'},
+{id:'burger_slice',name:'Burger Slice',desc:'Burger/Pizza Slice',price:30,cost:16,emoji:'🍕',cat:'SAND'},
+{id:'muffin',name:'Muffin',desc:'Muffin',price:7,cost:3.5,emoji:'🧁',cat:'SAND'},
+{id:'coke_sprite',name:'Coke / Sprite',desc:'Coke, Sprite',price:16,cost:9,emoji:'🥤',cat:'DRINK'},
+{id:'aquelle',name:'Aquelle',desc:'Aquelle',price:15,cost:8,emoji:'💧',cat:'DRINK'},
+{id:'switch',name:'Switch',desc:'Switch',price:15,cost:8,emoji:'⚡',cat:'DRINK'},
+{id:'dragon',name:'Dragon',desc:'Dragon',price:13,cost:7,emoji:'🐉',cat:'DRINK'},
+{id:'still_water',name:'Still Water',desc:'Still Water',price:13,cost:7,emoji:'💧',cat:'DRINK'},
+{id:'sparkling',name:'Sparkling Water',desc:'Sparkling',price:20,cost:12,emoji:'💦',cat:'DRINK'},
+{id:'energade',name:'Energade',desc:'Energade',price:20,cost:12,emoji:'🏃',cat:'DRINK'},
+{id:'cappy',name:'Cappy Orange',desc:'Cappy Orange',price:14,cost:8,emoji:'🍊',cat:'DRINK'},
+{id:'isogade',name:'Isogade',desc:'Isogade',price:12,cost:6,emoji:'🥤',cat:'DRINK'},
+{id:'jelly_babies',name:'Jelly Babies',desc:'Sweets',price:18,cost:12,emoji:'🍬',cat:'SWEET'},
+{id:'wine_gums',name:'Wine Gums',desc:'Sweets',price:18,cost:12,emoji:'🍬',cat:'SWEET'},
+{id:'tv_bar',name:'TV Bar',desc:'Chocolate',price:15,cost:10,emoji:'🍫',cat:'SWEET'},
+{id:'kitkat',name:'KitKat 2 Finger',desc:'Chocolate',price:9,cost:5.5,emoji:'🍫',cat:'SWEET'},
+{id:'mini_lunch',name:'Mini Lunch Bar',desc:'Chocolate',price:8,cost:5,emoji:'🍫',cat:'SWEET'},
+{id:'sherbet',name:'Sherbet',desc:'Sweets R2',price:2,cost:0.8,emoji:'🍭',cat:'SWEET'},
+{id:'straw_sugar',name:'Straw Sugar',desc:'Straw Sugar R2',price:2,cost:0.8,emoji:'🍭',cat:'SWEET'},
+{id:'pinpop',name:'Pinpop',desc:'Lollipop',price:2,cost:0.8,emoji:'🍭',cat:'SWEET'},
+{id:'halls',name:'Halls',desc:'Halls R1',price:1,cost:0.4,emoji:'🍬',cat:'SWEET'},
+{id:'cheppies',name:'Cheppies / Chappies',desc:'Cheppies R1',price:1,cost:0.4,emoji:'🍬',cat:'SWEET'},
+{id:'small',name:'Chips Small',desc:'Small',price:28,cost:12,emoji:'🍟',cat:'CHIPS'},
+{id:'medium',name:'Chips Medium',desc:'Medium',price:35,cost:16,emoji:'🍟',cat:'CHIPS'},
+{id:'large',name:'Chips Large',desc:'Large',price:40,cost:19,emoji:'🍟',cat:'CHIPS'},
+{id:'xlarge',name:'Chips XL',desc:'XL',price:50,cost:24,emoji:'🍟🔥',cat:'CHIPS'},
+{id:'hotdog',name:'Hot dog',desc:'Hot dog',price:18,cost:8,emoji:'🌭',cat:'CHIPS'},
+{id:'burger',name:'Burger Large',desc:'Burger Large',price:35,cost:18,emoji:'🍔',cat:'CHIPS'},
+{id:'burgerchips',name:'Burger + Chips',desc:'Burger + Chips',price:48,cost:26,emoji:'🍔🍟',cat:'CHIPS'},
+{id:'fatcake',name:'Fat Cake',desc:'Fat Cake R2',price:2,cost:0.8,emoji:'🫓',cat:'CHIPS'},
+{id:'lays',name:'Lays',desc:'Snack',price:10,cost:7,emoji:'🍿',cat:'SNACK'},
+{id:'doritos',name:'Doritos',desc:'Snack',price:10,cost:7,emoji:'🔶',cat:'SNACK'},
+{id:'sweetpuffs',name:'Sweet Puffs',desc:'Snack',price:13,cost:9,emoji:'☁️',cat:'SNACK'},
+{id:'goslo',name:'Go Slo',desc:'Snack',price:8,cost:5,emoji:'🥨',cat:'SNACK'},
+{id:'stylos',name:'Stylos',desc:'Snack',price:9,cost:6,emoji:'🥜',cat:'SNACK'},
+{id:'popshots',name:'Pop Shots',desc:'Snack',price:7,cost:4.5,emoji:'🍿',cat:'SNACK'},
+{id:'toppers',name:'Toppers',desc:'Snack',price:15,cost:10,emoji:'🍪',cat:'SNACK'},
+{id:'pretzels',name:'Pretzels',desc:'Snack',price:8,cost:5,emoji:'🥨',cat:'SNACK'},
 ];
-let cart={};
-let stats=JSON.parse(localStorage.getItem('shabangu_stats')||'{"sales":0,"profit":0,"orders":0}');
+let cart={}; let curFilter='ALL';
+let stats=JSON.parse(localStorage.getItem('shabangu_final_v2')||'{"sales":0,"profit":0,"orders":0}');
 function renderMenu(){
 const el=document.getElementById('menu');
-el.innerHTML=ITEMS.map(i=>{
+let html='';
+if(curFilter==='ALL'){
+html+=`<div class="cat-title">👑 REAL KOTAS (R32-R60)</div>`+ITEMS.filter(i=>i.cat==='REAL').map(cardHtml).join('');
+html+=`<div class="cat-title">🔥 KOTAS (R27-R30)</div>`+ITEMS.filter(i=>i.cat==='KOTA').map(cardHtml).join('');
+html+=`<div class="cat-title">🥪 SANDWICHES (Blue R7-R30)</div>`+ITEMS.filter(i=>i.cat==='SAND').map(cardHtml).join('');
+html+=`<div class="cat-title">🥤 DRINKS (Green R12-R20)</div>`+ITEMS.filter(i=>i.cat==='DRINK').map(cardHtml).join('');
+html+=`<div class="cat-title">🍬 SWEETS (Green R1-R18 NEW!)</div>`+ITEMS.filter(i=>i.cat==='SWEET').map(cardHtml).join('');
+html+=`<div class="cat-title">🍟 CHIPS & BURGERS</div>`+ITEMS.filter(i=>i.cat==='CHIPS').map(cardHtml).join('');
+html+=`<div class="cat-title">🍿 SNACKS (Yellow)</div>`+ITEMS.filter(i=>i.cat==='SNACK').map(cardHtml).join('');
+}else{
+html+=ITEMS.filter(i=>i.cat===curFilter).map(cardHtml).join('');
+}
+el.innerHTML=html;
+}
+function cardHtml(i){
 const q=cart[i.id]||0;
-return `<div class="card ${q>0?'hot':''}">
-<span class="badge">${i.cat}</span>
-<div class="name">${i.emoji} ${i.name}</div>
-<div class="desc">Cost R${i.cost} → Profit R${(i.price-i.cost).toFixed(1)}</div>
-<div class="price">R${i.price}</div>
-<div class="qtybox">
-<button class="btn btn-less" onclick="changeQty('${i.id}',-1)">-</button>
-<div class="qty">${q}</div>
-<button class="btn btn-add" onclick="changeQty('${i.id}',1)">+ Add</button>
-</div>
-</div>`;
-}).join('');
+return `<div class="card ${q>0?'hot':''} ${i.cat.toLowerCase()}"><span class="badge ${i.cat.toLowerCase()}">${i.cat}</span><div class="name">${i.emoji} ${i.name}</div><div class="desc">${i.desc}</div><div class="price">R${i.price}</div><div class="qtybox"><button class="btn btn-less" onclick="changeQty('${i.id}',-1)">-</button><div class="qty">${q}</div><button class="btn btn-add" onclick="changeQty('${i.id}',1)">+ Add</button></div></div>`;
 }
 function changeQty(id,d){cart[id]=(cart[id]||0)+d;if(cart[id]<=0)delete cart[id];renderMenu();renderCart();}
-function renderCart(){
-const e=document.getElementById('cartItems');
-const entries=Object.entries(cart);
-if(!entries.length)e.innerHTML='<small>No items - tap + on Small R28 etc</small>';
-else e.innerHTML=entries.map(([id,q])=>{const it=ITEMS.find(x=>x.id===id);return `<div class="cart-item"><span>${it.emoji} ${it.name} x${q}</span><span>R${it.price*q}</span></div>`}).join('');
-const total=entries.reduce((s,[id,q])=>s+ITEMS.find(x=>x.id===id).price*q,0);
-document.getElementById('cartTotal').innerText='R'+total;
-document.getElementById('cartCount').innerText=entries.reduce((s,[,q])=>s+q,0)+' items';
-updateOwner();
-}
+function renderCart(){const e=document.getElementById('cartItems');const entries=Object.entries(cart);if(!entries.length)e.innerHTML='<small>No items</small>';else e.innerHTML=entries.map(([id,q])=>{const it=ITEMS.find(x=>x.id===id);return `<div class="cart-item"><span>${it.emoji} ${it.name} x${q}</span><span>R${it.price*q}</span></div>`}).join('');const total=entries.reduce((s,[id,q])=>s+ITEMS.find(x=>x.id===id).price*q,0);document.getElementById('cartTotal').innerText='R'+total;document.getElementById('cartCount').innerText=entries.reduce((s,[,q])=>s+q,0)+' items';updateOwner();}
 function clearCart(){cart={};renderMenu();renderCart();}
-function orderWhatsApp(){
-const entries=Object.entries(cart);if(!entries.length)return alert('Add food first!');
-const total=entries.reduce((s,[id,q])=>s+ITEMS.find(x=>x.id===id).price*q,0);
-let msg=`*NEW ORDER - SHABANGU'S FAST FOOD*%0A%0A`;entries.forEach(([id,q])=>{const it=ITEMS.find(x=>x.id===id);msg+=`• ${it.name} x${q} = R${it.price*q}%0A`;});msg+=`%0A*Total: R${total}*%0A%0ACustomer Name:`;window.open(`https://wa.me/27780233263?text=${msg}`,'_blank');addSale(total);
-}
-function orderCash(){const entries=Object.entries(cart);if(!entries.length)return alert('Add food first!');const total=entries.reduce((s,[id,q])=>s+ITEMS.find(x=>x.id===id).price*q,0);alert('✅ R'+total+' Cash Received!');addSale(total);clearCart();}
-function addSale(total){const profit=Object.entries(cart).reduce((s,[id,q])=>{const it=ITEMS.find(x=>x.id===id);return s+(it.price-it.cost)*q;},0);stats.sales+=total;stats.profit+=profit;stats.orders+=1;localStorage.setItem('shabangu_stats',JSON.stringify(stats));updateOwner();}
-function updateOwner(){document.getElementById('k-sales').innerText='R'+stats.sales;document.getElementById('k-profit').innerText='R'+Math.round(stats.profit);document.getElementById('k-orders').innerText=stats.orders;document.getElementById('profitList').innerHTML=ITEMS.map(i=>`<div style="display:flex;justify-content:space-between;padding:7px 0;border-bottom:1px dashed #eee;font-size:13px"><span>${i.emoji} ${i.name}</span><span>R${i.price} - R${i.cost} = <b style="color:#ff6a00">R${i.price-i.cost}</b></span></div>`).join('');}
+function orderWhatsApp(){const entries=Object.entries(cart);if(!entries.length)return alert('Add items!');const total=entries.reduce((s,[id,q])=>s+ITEMS.find(x=>x.id===id).price*q,0);let msg=`*NEW ORDER - SHABANGU'S FAST FOOD*%0A%0A`;entries.forEach(([id,q])=>{const it=ITEMS.find(x=>x.id===id);msg+=`• ${it.name} x${q} = R${it.price*q}%0A`;});msg+=`%0A*Total: R${total}*%0A`;window.open(`https://wa.me/27780233263?text=${msg}`,'_blank');addSale(total);}
+function orderCash(){const entries=Object.entries(cart);if(!entries.length)return alert('Add items!');const total=entries.reduce((s,[id,q])=>s+ITEMS.find(x=>x.id===id).price*q,0);alert('✅ R'+total+' Cash!');addSale(total);clearCart();}
+function addSale(total){const profit=Object.entries(cart).reduce((s,[id,q])=>{const it=ITEMS.find(x=>x.id===id);return s+(it.price-it.cost)*q;},0);stats.sales+=total;stats.profit+=profit;stats.orders+=1;localStorage.setItem('shabangu_final_v2',JSON.stringify(stats));updateOwner();}
+function updateOwner(){document.getElementById('k-sales').innerText='R'+stats.sales;document.getElementById('k-profit').innerText='R'+Math.round(stats.profit);document.getElementById('k-orders').innerText=stats.orders;document.getElementById('profitList').innerHTML=ITEMS.map(i=>`<div style="display:flex;justify-content:space-between;padding:3px 0;border-bottom:1px dashed #eee;font-size:9px"><span>${i.emoji} ${i.name}</span><span><b style="color:#ff6a00">R${i.price}</b></span></div>`).join('');}
+function filterCat(c,btn){curFilter=c;document.querySelectorAll('.tab').forEach(b=>b.classList.remove('active'));btn.classList.add('active');document.getElementById('tab-menu').style.display='block';document.getElementById('tab-owner').classList.remove('active');renderMenu();}
 function showTab(t,btn){document.querySelectorAll('.tab').forEach(b=>b.classList.remove('active'));document.querySelectorAll('.owner').forEach(b=>b.classList.remove('active'));document.getElementById('tab-menu').style.display=t==='menu'?'block':'none';if(t!=='menu')document.getElementById('tab-'+t).classList.add('active');btn.classList.add('active');}
-function clearStats(){if(confirm('Reset today?')){stats={sales:0,profit:0,orders:0};localStorage.setItem('shabangu_stats',JSON.stringify(stats));updateOwner();}}
 renderMenu();renderCart();updateOwner();
 if('serviceWorker' in navigator){navigator.serviceWorker.register('./sw.js');}
 </script>
