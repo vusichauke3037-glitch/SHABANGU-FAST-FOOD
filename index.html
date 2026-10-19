@@ -47,7 +47,7 @@ header h1{font-size:21px;font-weight:900}
 <body>
 <header>
 <h1>🔥 SHABANGU'S FAST FOOD</h1>
-<p>49 Items - Full Shop - Kotas Drinks Sweets</p>
+<p>49 Items • WhatsApp: +27 82 892 6943</p>
 </header>
 
 <div class="tabs">
@@ -65,10 +65,10 @@ header h1{font-size:21px;font-weight:900}
 
 <div id="tab-owner" class="owner">
 <div class="box">
-<h3>📊 Daily Sales</h3>
+<h3>📊 Daily Sales - Shabangu</h3>
 <div class="kpi"><div><b id="k-sales">R0</b><span>Sales</span></div><div><b id="k-profit">R0</b><span>Profit</span></div><div><b id="k-orders">0</b><span>Orders</span></div></div>
 <div id="profitList" style="margin-top:8px"></div>
-<button onclick="localStorage.clear();location.reload()" style="margin-top:8px;width:100%;padding:8px;border-radius:8px;border:1px dashed #ff6a00;background:white;color:#ff6a00;font-weight:700;font-size:11px">Reset</button>
+<button onclick="localStorage.clear();location.reload()" style="margin-top:8px;width:100%;padding:8px;border-radius:8px;border:1px dashed #ff6a00;background:white;color:#ff6a00;font-weight:700;font-size:11px">Reset Stats</button>
 </div>
 </div>
 
@@ -76,7 +76,7 @@ header h1{font-size:21px;font-weight:900}
 <div style="display:flex;justify-content:space-between"><h3 style="font-size:13px">🧾 <span id="cartCount">0</span></h3><span style="font-size:11px;color:#ff6a00;font-weight:800" onclick="clearCart()">Clear</span></div>
 <div id="cartItems" style="margin:5px 0"><small>No items</small></div>
 <div class="total-row"><span>Total</span><span id="cartTotal">R0</span></div>
-<div class="grid2"><button class="btn-pay btn-wa" onclick="orderWhatsApp()">WhatsApp Order</button><button class="btn-pay btn-cash" onclick="orderCash()">💵 Cash</button></div>
+<div class="grid2"><button class="btn-pay btn-wa" onclick="orderWhatsApp()">WhatsApp Order</button><button class="btn-pay btn-cash" onclick="orderCash()">💵 Cash Paid</button></div>
 </div>
 
 <script>
@@ -141,7 +141,7 @@ html+=`<div class="cat-title">👑 REAL KOTAS (R32-R60)</div>`+ITEMS.filter(i=>i
 html+=`<div class="cat-title">🔥 KOTAS (R27-R30)</div>`+ITEMS.filter(i=>i.cat==='KOTA').map(cardHtml).join('');
 html+=`<div class="cat-title">🥪 SANDWICHES (Blue R7-R30)</div>`+ITEMS.filter(i=>i.cat==='SAND').map(cardHtml).join('');
 html+=`<div class="cat-title">🥤 DRINKS (Green R12-R20)</div>`+ITEMS.filter(i=>i.cat==='DRINK').map(cardHtml).join('');
-html+=`<div class="cat-title">🍬 SWEETS (Green R1-R18 NEW!)</div>`+ITEMS.filter(i=>i.cat==='SWEET').map(cardHtml).join('');
+html+=`<div class="cat-title">🍬 SWEETS (R1-R18 NEW!)</div>`+ITEMS.filter(i=>i.cat==='SWEET').map(cardHtml).join('');
 html+=`<div class="cat-title">🍟 CHIPS & BURGERS</div>`+ITEMS.filter(i=>i.cat==='CHIPS').map(cardHtml).join('');
 html+=`<div class="cat-title">🍿 SNACKS (Yellow)</div>`+ITEMS.filter(i=>i.cat==='SNACK').map(cardHtml).join('');
 }else{
@@ -156,7 +156,19 @@ return `<div class="card ${q>0?'hot':''} ${i.cat.toLowerCase()}"><span class="ba
 function changeQty(id,d){cart[id]=(cart[id]||0)+d;if(cart[id]<=0)delete cart[id];renderMenu();renderCart();}
 function renderCart(){const e=document.getElementById('cartItems');const entries=Object.entries(cart);if(!entries.length)e.innerHTML='<small>No items</small>';else e.innerHTML=entries.map(([id,q])=>{const it=ITEMS.find(x=>x.id===id);return `<div class="cart-item"><span>${it.emoji} ${it.name} x${q}</span><span>R${it.price*q}</span></div>`}).join('');const total=entries.reduce((s,[id,q])=>s+ITEMS.find(x=>x.id===id).price*q,0);document.getElementById('cartTotal').innerText='R'+total;document.getElementById('cartCount').innerText=entries.reduce((s,[,q])=>s+q,0)+' items';updateOwner();}
 function clearCart(){cart={};renderMenu();renderCart();}
-function orderWhatsApp(){const entries=Object.entries(cart);if(!entries.length)return alert('Add items!');const total=entries.reduce((s,[id,q])=>s+ITEMS.find(x=>x.id===id).price*q,0);let msg=`*NEW ORDER - SHABANGU'S FAST FOOD*%0A%0A`;entries.forEach(([id,q])=>{const it=ITEMS.find(x=>x.id===id);msg+=`• ${it.name} x${q} = R${it.price*q}%0A`;});msg+=`%0A*Total: R${total}*%0A`;window.open(`https://wa.me/27828926943?text=${msg}`,'_blank');addSale(total);}
+function orderWhatsApp(){
+  const entries=Object.entries(cart);
+  if(!entries.length)return alert('Add items!');
+  const total=entries.reduce((s,[id,q])=>s+ITEMS.find(x=>x.id===id).price*q,0);
+  let msg=`*NEW ORDER - SHABANGU'S FAST FOOD*%0A%0A`;
+  entries.forEach(([id,q])=>{
+    const it=ITEMS.find(x=>x.id===id);
+    msg+=`• ${it.name} x${q} = R${it.price*q}%0A`;
+  });
+  msg+=`%0A*Total: R${total}*%0A`;
+  window.open(`https://wa.me/27828926943?text=${msg}`,'_blank');
+  addSale(total);
+}
 function orderCash(){const entries=Object.entries(cart);if(!entries.length)return alert('Add items!');const total=entries.reduce((s,[id,q])=>s+ITEMS.find(x=>x.id===id).price*q,0);alert('✅ R'+total+' Cash!');addSale(total);clearCart();}
 function addSale(total){const profit=Object.entries(cart).reduce((s,[id,q])=>{const it=ITEMS.find(x=>x.id===id);return s+(it.price-it.cost)*q;},0);stats.sales+=total;stats.profit+=profit;stats.orders+=1;localStorage.setItem('shabangu_final_v2',JSON.stringify(stats));updateOwner();}
 function updateOwner(){document.getElementById('k-sales').innerText='R'+stats.sales;document.getElementById('k-profit').innerText='R'+Math.round(stats.profit);document.getElementById('k-orders').innerText=stats.orders;document.getElementById('profitList').innerHTML=ITEMS.map(i=>`<div style="display:flex;justify-content:space-between;padding:3px 0;border-bottom:1px dashed #eee;font-size:9px"><span>${i.emoji} ${i.name}</span><span><b style="color:#ff6a00">R${i.price}</b></span></div>`).join('');}
